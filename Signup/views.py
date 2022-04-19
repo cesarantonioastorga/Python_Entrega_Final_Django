@@ -7,7 +7,7 @@ from Signup.models import Signup
 # Create your views here.
 
 
-def SignupForm(request):
+def signupForm(request):
 
     if request.method == "POST":
         # Aqui me llega la informacion del html
@@ -23,5 +23,5 @@ def SignupForm(request):
     else:
         registroFormulario = SignupForm()
 
-    return render(request, "Base/pages/registro.html", {"registroFormulario": registroFormulario})
+    return render(request, "Signup/registro.html", {"registroFormulario": registroFormulario})
 

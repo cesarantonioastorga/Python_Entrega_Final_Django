@@ -17,11 +17,5 @@ def nosotros(request):
 def contacto(request):
       return render(request, "Base/pages/contacto.html")
 
-def ingresar(request):
-      return render(request, "Base/pages/ingresar.html")
-
-def registro(request):
-      return render(request, "Base/pages/registro.html")
-
 def perfil(request):
       return render(request, "Base/pages/profile.html")
