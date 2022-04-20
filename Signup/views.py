@@ -2,11 +2,31 @@ from django.http.request import QueryDict
 from django.shortcuts import render, HttpResponse
 from django.http import HttpResponse
 from Signup.forms import SignupForm
-from Signup.models import Signup
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
 
+def signupForm(request):
+
+    if request.method == "POST":
+        # Aqui me llega la informacion del html
+        registroFormulario = UserCreationForm(request.POST)
+        registroFormulario = SignupForm(request.POST)
+        print(registroFormulario)
+
+        if registroFormulario.is_valid():
+            username = registroFormulario.cleaned_data['username']
+            registroFormulario.save()
+        return render(request, "Base/pages/index.html", {"Mensaje":"Usuario creado"})
+    else:
+        registroFormulario = UserCreationForm()
+        registroFormulario = SignupForm()
+
+    return render(request, "Signup/registro.html", {"registroFormulario": registroFormulario})
+
+
+'''
 def signupForm(request):
 
     if request.method == "POST":
@@ -24,4 +44,4 @@ def signupForm(request):
         registroFormulario = SignupForm()
 
     return render(request, "Signup/registro.html", {"registroFormulario": registroFormulario})
-
+'''
