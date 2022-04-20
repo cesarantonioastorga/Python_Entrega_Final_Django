@@ -1,87 +1,61 @@
-{% extends "Base/template.html" %}
-{% load static %}
-{% block contenidoQueCambia %}
-<!-- Login Start -->
-<main class="container-fluid mt-5 pt-3">
-    <section class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="section-title mb-0">
-                    <h4 class="m-0 text-uppercase font-weight-bold">Iniciar Sesión</h4>
-                </div>
-                <div class="bg-white border border-top-0 p-4 mb-3">
-                    <h6 class="text-uppercase font-weight-bold mb-3">Ingresar</h6>
-                    <form method="POST">{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
 
-                        <div class="form-group">
-                            {{ form.usuario }}
-                        </div>
-                        <div class="form-group">
-                            {{ form.contraseña }}
-                        </div>
-                        <div>
-                            <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
-                                type="submit">Ingresar
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <!-- Social Follow Start -->
-                <div class="mb-3">
-                    <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Follow Us</h4>
-                    </div>
-                    <div class="bg-white border border-top-0 p-3">
-                        <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
-                            <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">12,345 Fans</span>
-                        </a>
-                        <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
-                            <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">12,345 Followers</span>
-                        </a>
-                        <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #0185AE;">
-                            <i class="fab fa-linkedin-in text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">12,345 Connects</span>
-                        </a>
-                        <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
-                            <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">12,345 Followers</span>
-                        </a>
-                        <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
-                            <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">12,345 Subscribers</span>
-                        </a>
-                        <a href="" class="d-block w-100 text-white text-decoration-none" style="background: #055570;">
-                            <i class="fab fa-vimeo-v text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">12,345 Followers</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Social Follow End -->
+<head>
+    {% load static %}
 
-                <!-- Newsletter Start -->
-                <div class="mb-3">
+    <meta charset="utf-8">
+    <title>BizNews - Free News Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{static 'Base/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{%static 'Base/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{%static 'Base/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Login Start -->
+    <main class="container-fluid">
+        <section class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <div class="row">
+                <div style="width: 400px;">
                     <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
+                        <h4 class="m-0 text-uppercase font-weight-bold">Iniciar Sesión</h4>
                     </div>
-                    <div class="bg-white text-center border border-top-0 p-3">
-                        <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-                        <div class="input-group mb-2" style="width: 100%;">
-                            <input type="text" class="form-control form-control-lg" placeholder="Your Email">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary font-weight-bold px-3">Sign Up</button>
+                    <div class="bg-white border border-top-0 p-4 mb-3">
+                        <h6 class="text-uppercase font-weight-bold mb-3">Ingresar</h6>
+                        <form method="POST">{% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" class="form-control p-4" placeholder="Usuario" required="required" name="username"/>
                             </div>
-                        </div>
-                        <small>Lorem ipsum dolor sit amet elit</small>
+                            <div class="form-group">
+                                <input type="password" class="form-control p-4" placeholder="Contraseña" required="required" name="password"/>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
+                                    type="submit">Ingresar
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <!-- Newsletter End -->
             </div>
-        </div>
-    </section>
-</main>
-<!-- Login End -->
-{% endblock %}
+        </section>
+    </main>
+    <!-- Login End -->
+</body>
+</html>

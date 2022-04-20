@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from Login.forms import LoginForm
-from Signup.models import Signup
 
 # Create your views here.
 
 #Para el login
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+
 
 
 def login_request(request):

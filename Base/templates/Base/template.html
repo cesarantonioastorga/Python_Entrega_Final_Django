@@ -25,6 +25,26 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{%static 'Base/css/style.css' %}" rel="stylesheet">
+
+    <style>
+        .user p span i{
+            position: relative;
+        }
+        .user p span i a {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding: 10px;
+            z-index: 1;
+            font-family: sans-serif;
+            font-weight: 400;
+            margin-left:-50px;
+        }
+        .user p span i:hover a{
+            display: block;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,6 +70,15 @@
                 </nav>
             </div>
             <div class="col-lg-3 text-right d-none d-md-block">
+                <div class="user">
+                    <p class="m-0">Bienvenido {{user.username | upper}}
+                        <span>
+                            <i class="fas fa-user">
+                                <a href="{% url 'Logout' %}">Logout</a>
+                            </i>
+                        </span>
+                    </p>
+                </div>
                 <nav class="navbar navbar-expand-sm bg-dark p-0">
                     <ul class="navbar-nav ml-auto mr-n2">
                         <li class="nav-item">
