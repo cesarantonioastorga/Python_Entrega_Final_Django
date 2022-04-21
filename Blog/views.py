@@ -10,7 +10,7 @@ def blog(request):
       return render(request, "Blog/blog.html")
 
 def posteo(request):
-
+      miFormulario = PostForm()
       if request.method == 'POST':
 
             miFormulario = PostForm(data=request.POST) #aquí mellega toda la información del html
