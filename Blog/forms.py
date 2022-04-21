@@ -13,7 +13,7 @@ class PostForm(forms.Form):
     subtitulo = forms.CharField(max_length=200, widget=forms.TextInput(attrs={"class":"form-control p-4", 'placeholder': 'Subtitulo'}),required=True)
     parrafo = forms.CharField(max_length=2000, widget=forms.Textarea(attrs={"class":"form-control p-4", 'placeholder': 'Contenido'}),required=True)
     autor = forms.CharField(max_length=50, widget=forms.TextInput(attrs={"class":"form-control p-4", 'placeholder': 'Autor'}),required=True)
-    fecha = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control p-4"}))
-    imagen = forms.ImageField()
+    #fecha = forms.DateField(widget=forms.DateInput(attrs={"class":"form-control p-4"}))
+    #imagen = forms.ImageField()
 
 
