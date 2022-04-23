@@ -33,8 +33,14 @@ def leerPosteos(request):
       return render(request, "Blog/blog.html",contexto)
 
 def post(request, title):
-      titulo = Post.objects.get(id=title)
-      return render(request, "Blog/post.html")
+      id_post = Post.objects.get(id=title)
+      '''
+      subtitulo = request.POST.get('subtitulo')
+      parrafo = request.POST.get('parrafo')
+      autor = request.POST.get('autor')
+      imagen = request.FILES.get('imagen')
+      '''
+      return render(request, "Blog/post.html",{'detalle':id_post})
 
       '''
       if request.method == 'POST':
