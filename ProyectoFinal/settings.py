@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Usuarios',
     'Login',
     'Signup',
+    'Blog',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +130,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/Base/static/Base/img/'
+MEDIA_URL = 'media/'
 
 LOGIN_REDIRECT_URL = reverse_lazy('Inicio')
 LOGOUT_REDIRECT_URL = reverse_lazy('Login')
