@@ -42,8 +42,8 @@ class Post(models.Model):
     subtitulo = models.CharField(max_length=200)
     parrafo = models.CharField(max_length=2000)
     autor = models.CharField(max_length=50)
-    #fecha = models.DateField(auto_now_add=True, auto_now=False)
-    #imagen = models.ImageField(null = True, blank=True, upload_to='imagenes/')
+    fecha = models.DateField(auto_now_add=True, auto_now=False)
+    imagen = models.ImageField(null = True, blank=True, upload_to='imagenes/')
 
     def __str__(self):
-        return f"Nombre: {self.titulo} - Apellido {self.subtitulo} - E-Mail {self.parrafo} - Profesión {self.autor}"
+        return f"Nombre: {self.titulo} - Apellido {self.subtitulo} - E-Mail {self.parrafo} - Profesión {self.autor} - Fecha {self.fecha}- Imagen {self.imagen}"

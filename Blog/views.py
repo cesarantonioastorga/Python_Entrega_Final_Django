@@ -10,7 +10,21 @@ def blog(request):
       return render(request, "Blog/blog.html")
 
 def posteo(request):
+      if request.POST:
+            posteo = Post()
+            posteo.titulo = request.POST.get('titulo')
+            posteo.subtitulo = request.POST.get('subtitulo')
+            posteo.parrafo = request.POST.get('parrafo')
+            posteo.autor = request.POST.get('autor')
+            posteo.imagen = request.FILES.get('imagen')
 
+            posteo.save()
+
+            return render(request, "Base/pages/index.html")
+      
+      return render(request, "Blog/publicar.html")
+
+      '''
       if request.method == 'POST':
 
             miFormulario = PostForm(request.POST) #aquí mellega toda la información del html
@@ -34,4 +48,4 @@ def posteo(request):
             miFormulario= PostForm() #Formulario vacio para construir el html
 
       return render(request, "Blog/publicar.html", {"miFormulario":miFormulario})
-      
+      '''
