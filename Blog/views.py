@@ -24,6 +24,18 @@ def posteo(request):
       
       return render(request, "Blog/publicar.html")
 
+def leerPosteos(request):
+
+      posteos = Post.objects.all() #trae todos los profesores
+
+      contexto= {"posteos":posteos} 
+
+      return render(request, "Blog/blog.html",contexto)
+
+def post(request, title):
+      titulo = Post.objects.get(id=title)
+      return render(request, "Blog/post.html")
+
       '''
       if request.method == 'POST':
 

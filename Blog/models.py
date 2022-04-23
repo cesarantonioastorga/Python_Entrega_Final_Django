@@ -46,4 +46,4 @@ class Post(models.Model):
     imagen = models.ImageField(null = True, blank=True, upload_to='imagenes/')
 
     def __str__(self):
-        return f"Nombre: {self.titulo} - Apellido {self.subtitulo} - E-Mail {self.parrafo} - Profesión {self.autor} - Fecha {self.fecha}- Imagen {self.imagen}"
+        return f"Titulo: {self.titulo} --- Subtitulo: {self.subtitulo} --- Parrafo: {self.parrafo} --- Autor: {self.autor} --- Fecha: {self.fecha} --- Imagen: {self.imagen}"
