@@ -6,6 +6,7 @@ from .models import *
 
 admin.site.register(Post)
 
+
 '''
 class CategoriaAdmin(admin.ModelAdmin):
     search_function=['nombre']

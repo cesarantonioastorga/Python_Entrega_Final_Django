@@ -19,3 +19,16 @@ class SignupForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
         # Saca los mensajes de ayuda
         help_texts = {k:"" for k in fields}
+
+class UserEditForm(UserCreationForm):
+    # Obligatorios
+    email = forms.EmailField(max_length=50, widget=forms.TextInput(attrs={"class":"form-control p-4", 'placeholder': 'Ingrese correo electrónico'}),required=True)
+    password1 = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs={"class":"form-control p-4", 'placeholder': 'Ingrese contraseña'}),required=True)
+    password2 = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs={"class":"form-control p-4", 'placeholder': 'Reingrese contraseña'}),required=True)
+
+    last_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={"class":"form-control p-4", 'placeholder': 'Ingrese apellido'}),required=True)
+    first_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={"class":"form-control p-4", 'placeholder': 'Ingrese nombre'}),required=True)
+    
+    class Meta:
+        model = User
+        fields = ['email', 'password1', 'password2', 'last_name', 'first_name']
