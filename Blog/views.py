@@ -42,7 +42,24 @@ def post(request, title):
       '''
       return render(request, "Blog/post.html",{'detalle':id_post})
 
-      '''
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+
+class PostUpdate(UpdateView):
+
+    model = Post
+    success_url = "/Pages/pages"
+    fields = ['titulo', 'subtitulo', 'parrafo', 'autor', 'imagen']
+
+class PostDelete(DeleteView):
+
+    model = Post
+    success_url = "/Pages/pages"
+
+'''
       if request.method == 'POST':
 
             miFormulario = PostForm(request.POST) #aquí mellega toda la información del html
