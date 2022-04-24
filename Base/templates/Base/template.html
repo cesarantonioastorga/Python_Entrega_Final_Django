@@ -60,23 +60,31 @@
                         <li class="nav-item border-right border-secondary">
                             <a class="nav-link text-body small" href="{% url 'Contacto' %}">Contacto</a>
                         </li>
+                        {% if not request.user.is_authenticated%}
                         <li class="nav-item border-right border-secondary">
-                            <a class="nav-link text-body small" href="{% url 'Login' %}">Ingresar</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-body small" href="{% url 'SignupForm' %}">Registro</a>
                         </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-body small" href="{% url 'Login' %}">Ingresar</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3 text-right d-none d-md-block">
                 <div class="user">
-                    <p class="m-0">Bienvenido {{user.username | upper}}
+                    <p class="m-0">Bienvenido 
+                        {% if request.user.is_authenticated %}
+                        {{user.username | upper}}
+                        
                         <span>
                             <i class="fas fa-user">
+                                
                                 <a href="{% url 'Logout' %}">Logout</a>
                             </i>
                         </span>
+                        {% endif %}
                     </p>
                 </div>
                 <nav class="navbar navbar-expand-sm bg-dark p-0">
@@ -129,7 +137,7 @@
             <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
                     <a href="{% url 'Inicio' %}" class="nav-item nav-link active">Inicio</a>
-                    <a href="{% url 'Noticias' %}" class="nav-item nav-link">Noticias</a>
+                    <a href="{% url 'LeerPosteos' %}" class="nav-item nav-link">Noticias</a>
                     <a href="{% url 'Tienda' %}" class="nav-item nav-link">Tienda</a>
                     <a href="{% url 'Nosotros' %}" class="nav-item nav-link">Nosotros</a>
                 </div>

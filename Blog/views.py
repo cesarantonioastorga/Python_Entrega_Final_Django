@@ -51,13 +51,13 @@ from django.urls import reverse_lazy
 class PostUpdate(UpdateView):
 
     model = Post
-    success_url = "/Pages/pages"
+    success_url = "/Inicio/pages"
     fields = ['titulo', 'subtitulo', 'parrafo', 'autor', 'imagen']
 
 class PostDelete(DeleteView):
 
     model = Post
-    success_url = "/Pages/pages"
+    success_url = "/Inicio/pages"
 
 '''
       if request.method == 'POST':

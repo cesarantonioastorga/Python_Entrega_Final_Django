@@ -4,5 +4,6 @@ from django.contrib.auth.views import LogoutView
 
 
 urlpatterns = [
-    path('accounts/signup/', views.signupForm, name="SignupForm"),
+    path('signup/', views.signupForm, name="SignupForm"),
+    path('editarPerfil/', views.editarPerfil, name="EditarPerfil"),
 ]

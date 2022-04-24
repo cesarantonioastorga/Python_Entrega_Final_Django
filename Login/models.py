@@ -8,3 +8,4 @@ class Login(models.Model):
 
     def __str__(self):
         return f"Usuario: {self.usuario} - Contraseña: {self.contraseña}"
+
