@@ -9,6 +9,7 @@ from Blog.models import Post
 def blog(request):
       return render(request, "Blog/blog.html")
 
+@login_required
 def posteo(request):
       if request.POST:
             posteo = Post()
@@ -24,6 +25,7 @@ def posteo(request):
       
       return render(request, "Blog/publicar.html")
 
+@login_required
 def leerPosteos(request):
 
       posteos = Post.objects.all() #trae todos los profesores
@@ -32,6 +34,7 @@ def leerPosteos(request):
 
       return render(request, "Blog/blog.html",contexto)
 
+@login_required
 def post(request, title):
       id_post = Post.objects.get(id=title)
       '''
