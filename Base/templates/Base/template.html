@@ -27,22 +27,34 @@
     <link href="{%static 'Base/css/style.css' %}" rel="stylesheet">
 
     <style>
-        .user p span i{
+        
+        .user div ul {
             position: relative;
+            list-style: none;
+            padding: 0;
+            margin: 10px;
         }
-        .user p span i a {
-            display: none;
+        .user div ul li #submenu {
             position: absolute;
-            background-color: white;
+            width: 100px;
+            right: -15px;
+            margin: 0;
             padding: 10px;
+            display: none;
+            background-color: white;
             z-index: 1;
+        }
+
+        .user div ul li #subemnu li a {
+            padding: 10px;
             font-family: sans-serif;
             font-weight: 400;
             margin-left:-50px;
         }
-        .user p span i:hover a{
+        .user div ul li:hover #submenu{
             display: block;
             text-decoration: none;
+            list-style: none;
         }
     </style>
 </head>
@@ -73,17 +85,22 @@
                 </nav>
             </div>
             <div class="col-lg-3 text-right d-none d-md-block">
-                <div class="user">
+                <div class="user d-flex justify-content-end align-items-center">
                     <p class="m-0">Bienvenido 
                         {% if request.user.is_authenticated %}
                         {{user.username | upper}}
                         
-                        <span>
-                            <i class="fas fa-user">
-                                
-                                <a href="{% url 'Logout' %}">Logout</a>
-                            </i>
-                        </span>
+                        <div>
+                            <ul>
+                                <li>
+                                    <i class="fas fa-user"></i>
+                                    <ul id="submenu">
+                                        <li><a href="{% url 'Perfil' %}">Perfil</a></li>
+                                        <li><a href="{% url 'Logout' %}">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                         {% endif %}
                     </p>
                 </div>
