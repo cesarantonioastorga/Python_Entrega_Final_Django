@@ -45,6 +45,11 @@ def editarPerfil(request):
         registroFormulario = UserEditForm(initial={'email': usuario.email})
         
     return render(request, "Signup/editar_perfil.html", {"registroFormulario": registroFormulario, "usuario": usuario})
+
+@login_required
+def perfil(request):
+      return render(request, "Signup/profile.html")
+
 '''
 def signupForm(request):
 

@@ -10,7 +10,6 @@ urlpatterns = [
     path('tienda/', views.tienda, name="Tienda"),
     path('about/', views.nosotros, name="Nosotros"),
     path('contacto/', views.contacto, name="Contacto"),
-    path('accounts/profile/', views.perfil, name="Perfil"),
     path('', RedirectView.as_view(url='/Base/', permanent=True)), # Para que ingrese directamente a nuestra pagina
 ]
 
