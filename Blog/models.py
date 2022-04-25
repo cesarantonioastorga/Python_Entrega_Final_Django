@@ -2,6 +2,17 @@ from django.db import models
 
 # Create your models here.
 
+class Post(models.Model):
+    titulo = models.CharField(max_length=100)
+    subtitulo = models.CharField(max_length=200)
+    parrafo = models.CharField(max_length=2000)
+    autor = models.CharField(max_length=50)
+    fecha = models.DateField(auto_now_add=True, auto_now=False)
+    imagen = models.ImageField(null = True, blank=True, upload_to='imagenes/')
+
+    def __str__(self):
+        return f"Titulo: {self.titulo} --- Subtitulo: {self.subtitulo} --- Parrafo: {self.parrafo} --- Autor: {self.autor} --- Fecha: {self.fecha} --- Imagen: {self.imagen}"
+
 '''
 class Categoria(models.Model):
     id = models.AutoField(primary_key= True)
@@ -37,13 +48,3 @@ class Autor(models.Model):
         return "{0},{1}".format(self.apellidos, self.nombres)
 
 '''
-class Post(models.Model):
-    titulo = models.CharField(max_length=100)
-    subtitulo = models.CharField(max_length=200)
-    parrafo = models.CharField(max_length=2000)
-    autor = models.CharField(max_length=50)
-    fecha = models.DateField(auto_now_add=True, auto_now=False)
-    imagen = models.ImageField(null = True, blank=True, upload_to='imagenes/')
-
-    def __str__(self):
-        return f"Titulo: {self.titulo} --- Subtitulo: {self.subtitulo} --- Parrafo: {self.parrafo} --- Autor: {self.autor} --- Fecha: {self.fecha} --- Imagen: {self.imagen}"

@@ -23,6 +23,4 @@ def nosotros(request):
 def contacto(request):
       return render(request, "Base/pages/contacto.html")
 
-@login_required
-def perfil(request):
-      return render(request, "Base/pages/profile.html")
+
